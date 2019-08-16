@@ -1,2 +1,121 @@
-# Single-cell-transcriptomics-reveals-a-signaling-roadmap-coordinating-endoderm-and-mesoderm-lineage-
+# Single-cell-transcriptomics-reveals-a-signaling-roadmap-coordinating-endoderm-and-mesoderm-lineage
 Code and Data Availability for Single cell transcriptomics reveals a signaling roadmap coordinating endoderm and mesoderm lineage diversification during foregut organogenesis  
+
+README for GitHub Repo "Single-cell-transcriptomics-reveals-a-signaling-roadmap-coordinating-endoderm-and-mesoderm-lineage" from ZornLab
+
+
+License : GPLv3.0
+
+Contact : Please report Bugs, Issues and Improvements on Github
+
+Requirements: R version[>=3.4], PERL version[>=5.16] and PYTHON version[2.7]
+
+*** Please see that all the source codes have extensively tested on MacOS and Linux [Redhat]. Scripts have not been tested on Windows OS. ***
+
+*** Each Script provides information on Inputs, processing steps and output files *****
+
+########################################################################################
+
+############################################
+Cellranger_processing_Scripts:
+
+#################### Install Cellranger [v1.3.0]
+#################### Install bcl2fastq  [v2.18.0]
+#################### Install samtools   [v1.8.0]
+#################### cellranger.csv is required to run cellranger
+#################### PATH to reference transcriptome files is required to run cellranger
+#################### PATH-FASTQ path to fastq files in required to run cellranger
+#################### For issues running cellranger, please contact 10x genomics
+#################### ./cellrangerv1.3.0_Process.sh
+#############################################
+
+
+#############################################
+MetaGene_Profile_Calculation:
+Two steps: 1) Run GenerateMetaprofile_ForGeneSets.pl 2) Run Seuratv3.0_MetaProfile_Dotplot.r
+
+GenerateMetaprofile_ForGeneSets.pl
+################## Script Requires two Inputs : 1) Directory with counts files [For example: Expression_Ligands_BMP.txt [this file has all BMP ligands and their counts] and similarly Expression_Receptors_Hedgehog.txt and so on] 2) OutputDirectory
+################## How to run : perl GenerateMetaprofile_ForGeneSets.pl CountsDIR MetaProfileDIR
+################## Please see that script requires counts files to be named in the following manner : Expression_Ligands_BMP.txt, Expression_Ligands_RA.txt, Expression_Response_FGF.txt etc.
+################## Run time 15-20 mins [For 30 counts files where each file has 5-10 genes and counts across ~14k cells]
+
+Run Seuratv3.0_MetaProfile_Dotplot.r
+############ This script processes MetaProfiles of GeneSets to create DotPlots using Seurat [v3.0]
+############ Please Refer to Seurat [v3.0] manual for details on parameters and functions
+############ Inputs: working dir, Output of GenerateMetaprofile_ForGeneSets.pl, metafile and geneinfo [See example files on Github]
+############################################
+
+
+###########################################
+Monocle3_Pseudotime_Analysis:
+
+############ Monoclev3_TrajectoryAnalysis.r processes Pseudotime Analysis using Monocle3 [v3.0 alpha]###############
+############ Please note only Markers obtained from Seurat were used to drive Pseudotime analysis
+############ Please Refer to Monocle [v3.0 alpha] manual for details on parameters and functions
+############ Inputs : Counts Matrix, Metafile [infomration on cells and their classification[if available]], GeneInfo
+###########################################
+
+
+############################################
+PseudoSpaceOrdering_Analysis:
+
+############ PseudotimeDistribution_Using_URD.r processes Pseudospace Ordering of cells using URD [v1.0]###############
+############ Please Refer to URD [v1.0] manual for details on parameters and functions
+############ Please note markers obtained from Seurat were used as variable genes to drive pesudospace analysis
+############ Inputs : Counts matrix, Metafile, GeneInfo
+############################################
+
+
+############################################
+Seurat_Analysis_Scripts:
+
+############ R scripts processes Cells and their transcriptome using Seurat [v2.3.4]###############
+############ Script carries out basic filtering, global scaling based normalization and scaling using Seurat Functions
+############ Script regresses out Cellcycle difference between G2m and S phase using ScaleData Function
+############ Please Refer to Seurat [v2.3.4] manual for details on parameters and functions
+############ for Analysis of endoderm and mesoderm blood, mitochondrial, ribosomal and certain ncRNA were regressed out
+############ Inputs : Counts Matrix, Metafile, GeneInfo
+#############################################
+
+
+#############################################
+SingleCellVoting_UsingKNN:
+Two steps: 1) Run KNN_Classification.r 2) Run Generate_Consensus_NormalizedVoteProbabilityMatrix.pl
+
+Run KNN_Classification.r:
+#################### Single Cell Voting using KNN classification algorithm
+#################### Please see Github for sample files
+#################### Inputs : TrainSet.txt and TestSet.txt
+#################### Please use >= R/3.4.4
+#################### Some Issues that can occur : problems with installation of KODAMA and knnflex packages and if using > R/3.5.0 then please follow Part2 of the script
+#################### Please see Generate_Consensus_NormalizedVoteProbabilityMatrix.pl is not required when using Part2 analysis method in KNN_Classification.r
+
+Generate_Consensus_NormalizedVoteProbabilityMatrix.pl:
+############## Perl Script to generate Consensus Normalized vote probability matrix
+############## Inputs : 1) ProbabilityMatrix.txt [from KNN_Classification.r] 2) MetaFile.txt [Training Set Cells and their cluster annotation]
+############## how to run : perl Script_Generate_Consensus_Matrix.pl ProbabilityMatrix.txt MetaFile.txt
+###############################################
+
+
+###############################################
+SPRING_Analysis_Scripts:
+
+################################# Please Download SPRING [v1.0] from (https://github.com/AllonKleinLab/SPRING)
+################################# This script is a modified version of the regular SPRING processing script
+################################# Script is designed to learn Principle Component Space from most complex dataset [in terms of lineage diversification] and then transform the whole dataset using learnt PC space to enhance lineage diversification through time
+################################# Please see SPRING github page on information on file formats and functions
+################################# Please use python v2.7
+################################# Once SPRING directory is generated please follow the steps below to visualize the SPRING analysis
+################################# 1) python -m SimpleHTTPServer 8000 & 2) http://localhost:8000/springViewer.html?datasets/SPRINGDIR_DATASET
+###############################################
+
+
+###############################################
+TranscriptionFactor_EnrichmentAnalysis:
+
+############ Seuratv3.0_TFEnrichment_Analysis.r carries out Transcription Factor Enrichment Analysis using Seurat [v3.0]
+############ Inputs: TF counts matrix, Metafile, GeneInfo
+############ Please Refer to Seurat [v3.0] manual for details on parameters and functions
+############ Animal Transcription Factors are provided along with the scripts
+###############################################
