@@ -1,6 +1,6 @@
 #!/bin/bash
 
-#################### Install Cellranger [v1.3.0]
+#################### Install Cellranger [v2.0.0]
 #################### Install bcl2fastq  [v2.18.0]
 #################### Install samtools   [v1.8.0]
 #################### cellranger.csv is required to run cellranger
