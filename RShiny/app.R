@@ -311,7 +311,7 @@ server <- function(input, output) {
          data <- as.matrix(read.table(file_expression, sep="\t", header=T, row.names=1, check.names=F))
          GenesUpload <- as.matrix(read.table(inFile$datapath, sep="\n", header=F))
          GenesUpload <- data.frame(GenesUpload)
-         GenesUpload <- GenesUpload$V1
+         GenesUpload <- unique(GenesUpload$V1)
          datause <- subset(data, rownames(data) %in% GenesUpload)
          datause <- t(datause)
          cormat <- cor(datause, method=input$Correlation)
@@ -323,7 +323,7 @@ server <- function(input, output) {
          data <- as.matrix(read.table(file_expression, sep="\t", header=T, row.names=1, check.names=F))
          GenesUpload <- as.matrix(read.table(inFile$datapath, sep="\n", header=F))
          GenesUpload <- data.frame(GenesUpload)
-         GenesUpload <- GenesUpload$V1
+         GenesUpload <- unique(GenesUpload$V1)
          datause <- subset(data, rownames(data) %in% GenesUpload)
          datause <- t(datause)
          cormat <- cor(datause, method=input$Correlation)
@@ -335,7 +335,7 @@ server <- function(input, output) {
          data <- as.matrix(read.table(file_expression, sep="\t", header=T, row.names=1, check.names=F))
          GenesUpload <- as.matrix(read.table(inFile$datapath, sep="\n", header=F))
          GenesUpload <- data.frame(GenesUpload)
-         GenesUpload <- GenesUpload$V1
+         GenesUpload <- unique(GenesUpload$V1)
          datause <- subset(data, rownames(data) %in% GenesUpload)
          datause <- t(datause)
          cormat <- cor(datause, method=input$Correlation)
@@ -349,7 +349,7 @@ server <- function(input, output) {
          data <- as.matrix(read.table(file_expression, sep="\t", header=T, row.names=1, check.names=F))
          GenesUpload <- as.matrix(read.table(inFile$datapath, sep="\n", header=F))
          GenesUpload <- data.frame(GenesUpload)
-         GenesUpload <- GenesUpload$V1
+         GenesUpload <- unique(GenesUpload$V1)
          datause <- subset(data, rownames(data) %in% GenesUpload)
          datause <- t(datause)
          cormat <- cor(datause, method=input$Correlation)
@@ -361,7 +361,7 @@ server <- function(input, output) {
          data <- as.matrix(read.table(file_expression, sep="\t", header=T, row.names=1, check.names=F))
          GenesUpload <- as.matrix(read.table(inFile$datapath, sep="\n", header=F))
          GenesUpload <- data.frame(GenesUpload)
-         GenesUpload <- GenesUpload$V1
+         GenesUpload <- unique(GenesUpload$V1)
          datause <- subset(data, rownames(data) %in% GenesUpload)
          datause <- t(datause)
          cormat <- cor(datause, method=input$Correlation)
@@ -373,7 +373,7 @@ server <- function(input, output) {
          data <- as.matrix(read.table(file_expression, sep="\t", header=T, row.names=1, check.names=F))
          GenesUpload <- as.matrix(read.table(inFile$datapath, sep="\n", header=F))
          GenesUpload <- data.frame(GenesUpload)
-         GenesUpload <- GenesUpload$V1
+         GenesUpload <- unique(GenesUpload$V1)
          datause <- subset(data, rownames(data) %in% GenesUpload)
          datause <- t(datause)
          cormat <- cor(datause, method=input$Correlation)
@@ -387,7 +387,7 @@ server <- function(input, output) {
          data <- as.matrix(read.table(file_expression, sep="\t", header=T, row.names=1, check.names=F))
          GenesUpload <- as.matrix(read.table(inFile$datapath, sep="\n", header=F))
          GenesUpload <- data.frame(GenesUpload)
-         GenesUpload <- GenesUpload$V1
+         GenesUpload <- unique(GenesUpload$V1)
          datause <- subset(data, rownames(data) %in% GenesUpload)
          datause <- t(datause)
          cormat <- cor(datause, method=input$Correlation)
@@ -399,7 +399,7 @@ server <- function(input, output) {
          data <- as.matrix(read.table(file_expression, sep="\t", header=T, row.names=1, check.names=F))
          GenesUpload <- as.matrix(read.table(inFile$datapath, sep="\n", header=F))
          GenesUpload <- data.frame(GenesUpload)
-         GenesUpload <- GenesUpload$V1
+         GenesUpload <- unique(GenesUpload$V1)
          datause <- subset(data, rownames(data) %in% GenesUpload)
          datause <- t(datause)
          cormat <- cor(datause, method=input$Correlation)
@@ -411,7 +411,7 @@ server <- function(input, output) {
          data <- as.matrix(read.table(file_expression, sep="\t", header=T, row.names=1, check.names=F))
          GenesUpload <- as.matrix(read.table(inFile$datapath, sep="\n", header=F))
          GenesUpload <- data.frame(GenesUpload)
-         GenesUpload <- GenesUpload$V1
+         GenesUpload <- unique(GenesUpload$V1)
          datause <- subset(data, rownames(data) %in% GenesUpload)
          datause <- t(datause)
          cormat <- cor(datause, method=input$Correlation)
