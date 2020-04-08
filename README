@@ -14,7 +14,7 @@ Requirements: R version[>=3.4], PERL version[>=5.16] and PYTHON version[2.7]
 ########################################################################################
 
 ############################################
-Cellranger_processing_Scripts:
+## Cellranger_processing_Scripts:
 
 #################### Install Cellranger [v1.3.0]
 #################### Install bcl2fastq  [v2.18.0]
