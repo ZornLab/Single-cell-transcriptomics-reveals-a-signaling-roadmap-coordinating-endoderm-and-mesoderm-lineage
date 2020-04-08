@@ -14,7 +14,7 @@ Requirements: R version[>=3.4], PERL version[>=5.16] and PYTHON version[2.7]
 ########################################################################################
 
 ############################################
-## Cellranger_processing_Scripts:
+Cellranger_processing_Scripts:
 
 #################### Install Cellranger [v1.3.0]
 #################### Install bcl2fastq  [v2.18.0]
@@ -116,3 +116,18 @@ TranscriptionFactor_EnrichmentAnalysis:
 ############ Please Refer to Seurat [v3.0] manual for details on parameters and functions
 ############ Animal Transcription Factors are provided along with the scripts
 ###############################################
+
+##############################################
+RShiny App
+### Requirements:
+R version[>=3.6]and PYTHON version[2.7]
+R packages required: 
+shiny
+reticulate
+servr
+Seurat
+ggplot2
+dplyr
+DT
+ggcorrplot
+############################################
