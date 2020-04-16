@@ -80,7 +80,7 @@ Seurat_Analysis_Scripts:
 SingleCellVoting_UsingKNN:
 Two steps: 1) Run KNN_Classification.r 2) Run Generate_Consensus_NormalizedVoteProbabilityMatrix.pl
 
-# Run KNN_Classification.r:
+Run KNN_Classification.r:
 #################### Single Cell Voting using KNN classification algorithm
 #################### Please see Github for sample files
 #################### Inputs : TrainSet.txt and TestSet.txt
@@ -96,7 +96,7 @@ Generate_Consensus_NormalizedVoteProbabilityMatrix.pl:
 
 
 ###############################################
-# SPRING_Analysis_Scripts:
+SPRING_Analysis_Scripts:
 
 ################################# Please Download SPRING [v1.0] from (https://github.com/AllonKleinLab/SPRING)
 ################################# This script is a modified version of the regular SPRING processing script
@@ -118,9 +118,9 @@ Generate_Consensus_NormalizedVoteProbabilityMatrix.pl:
 ###############################################
 
 ##############################################
-# RShiny App
+RShiny App
+Please access Shiny App using: (https://research.cchmc.org/ZornLab-singlecell)
 ### Requirements:
-Please access Shiny App using: https://research.cchmc.org/ZornLab-singlecell
 R version[>=3.6]and PYTHON version[2.7]
 R packages required: 
 shiny
